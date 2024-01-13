@@ -76,11 +76,16 @@ output "course_details" {
   value = var.course_details.Devops
 }
 
+# example usage of dev.tfvars & prod.tfvars  --> This requires passing the var from cli
+
 variable "env" {}
 
 output "env" {
   value = var.env
 }
+
+#example usage of tfvars --> terraform will pick the var data from this file by default if the varible not defined
+#in main.tf
 
 variable "url" {}
 
