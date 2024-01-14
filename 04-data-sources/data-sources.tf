@@ -19,6 +19,7 @@ data "aws_ami" "ami" {
   most_recent      = true
   owners           = ["amazon"]
   name_regex = "Centos-8-Devops-Practice"
+  executable_users = ["self"]
 }
 
 
@@ -32,8 +33,4 @@ output "sgid" {
 
 output "ami" {
   value = data.aws_ami.ami.id
-}
-
-provider "aws" {
-  region = "us-east-1"
 }
