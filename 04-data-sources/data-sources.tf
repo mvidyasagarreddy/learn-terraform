@@ -16,8 +16,9 @@ data "aws_security_group" "sgid" {
 }
 
 data "aws_ami" "ami" {
-  name = "devops-practice"
-  owners = [aws-marketplace]
+  executable_users = ["amazon"]
+  most_recent      = true
+  owners           = ["Centos-8-DevOps-Practice"]
 }
 
 
