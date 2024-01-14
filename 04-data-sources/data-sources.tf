@@ -15,7 +15,7 @@ data "aws_security_group" "sgid" {
   name = "allow-all"
 }
 
-data "aws_ami" "ami" {
+data "aws_ami" "example" {
   owners           = ["973714476881"]
   most_recent      = true
   name_regex = "Centos-8-Devops-Practice"
@@ -31,7 +31,7 @@ output "sgid" {
 }
 
 output "ami" {
-  value = data.aws_ami.ami.id
+  value = data.aws_ami.example.id
 }
 
 provider "aws" {
