@@ -16,9 +16,9 @@ data "aws_security_group" "sgid" {
 }
 
 data "aws_ami" "ami" {
-  executable_users = ["amazon"]
   most_recent      = true
-  owners           = ["Centos-8-Devops-Practice"]
+  owners           = ["amazon"]
+  name_regex = "Centos-8-Devops-Practice"
 }
 
 
@@ -32,4 +32,8 @@ output "sgid" {
 
 output "ami" {
   value = data.aws_ami.ami.id
+}
+
+provider "aws" {
+  region = "us-east-1a"
 }
