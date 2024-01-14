@@ -16,8 +16,8 @@ data "aws_security_group" "sgid" {
 }
 
 data "aws_ami" "ami" {
-  most_recent      = true
   owners           = ["973714476881"]
+  most_recent      = true
   name_regex = "Centos-8-Devops-Practice"
 }
 
@@ -32,4 +32,8 @@ output "sgid" {
 
 output "ami" {
   value = data.aws_ami.ami.id
+}
+
+provider "aws" {
+  region = "us-east-1"
 }
