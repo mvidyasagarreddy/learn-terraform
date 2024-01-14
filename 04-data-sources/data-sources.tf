@@ -18,7 +18,7 @@ data "aws_security_group" "sgid" {
 data "aws_ami" "ami" {
   executable_users = ["amazon"]
   most_recent      = true
-  owners           = ["Centos-8-DevOps-Practice"]
+  owners           = ["Centos-8-Devops-Practice"]
 }
 
 
