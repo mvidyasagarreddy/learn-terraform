@@ -8,7 +8,16 @@ data "aws_ec2_spot_price" "example" {
   }
 }
 
+data "aws_security_group" "sgid" {
+  name = "allow-all"
+}
+
+
 
 output "price" {
   value = data.aws_ec2_spot_price.example.spot_price
+}
+
+output "sgid" {
+  value = data.aws_security_group.sgid.id
 }
