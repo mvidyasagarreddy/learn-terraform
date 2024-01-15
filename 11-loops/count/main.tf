@@ -1,10 +1,10 @@
 resource "aws_instance" "web" {
-  count = 3
+  count = length(var.instances)
   ami           = data.aws_ami.example.id
   instance_type = "t2.micro"
 
   tags = {
-    Name = "HelloWorld"
+    Name = var.instances[count.index]
   }
 }
 
@@ -16,4 +16,8 @@ data "aws_ami" "example" {
 
 provider "aws" {
   region = "us-east-1"
+}
+
+variable "instances" {
+  default = ["frontend", "catalogue", "cart"]
 }
