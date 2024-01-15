@@ -9,7 +9,7 @@ data "aws_ami" "example" {
 resource "aws_instance" "web" {
   ami                    = data.aws_ami.example.id
   instance_type          = "t2.micro"
-  vpc_security_group_ids = ["sg-05e7f8ae29041d255"]
+  vpc_security_group_ids = [aws_security_group.sg.id]
 
   tags = {
     Name = var.name
