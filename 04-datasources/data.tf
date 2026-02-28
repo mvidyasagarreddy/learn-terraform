@@ -21,11 +21,15 @@ output "name" {
 }
 
 data "aws_ami" "example" {
-  executable_users = ["amazon"]
+  owners = ["amazon"]
   most_recent      = true
   name_regex       = "Centos-8-DevOps-Practice"
 }
 
-output "aws_ami" {
-  value = data.aws_ami.example.id
-}
+# output "aws_ami" {
+#   value = data.aws_ami.example.id
+# }
+
+# provider "aws" {
+#   region = "north-east-1"
+# }
