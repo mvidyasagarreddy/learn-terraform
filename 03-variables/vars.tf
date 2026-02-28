@@ -22,5 +22,5 @@ output "sample1" {
 #we have to access those in ${}
 
 output "sample-ext" {
-  value = "Value of sample is - ${var.sample}"
+  value = "Value of sample is - ${var.sample-ext}"
 }
