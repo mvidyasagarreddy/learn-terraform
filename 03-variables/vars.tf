@@ -24,3 +24,60 @@ output "sample1" {
 output "sample-ext" {
   value = "Value of sample is - ${var.sample-ext}"
 }
+
+# Variable Data types
+# 1: string
+# 2: number
+# 3: boolean
+
+# #Variable Types
+# 1.plain key, value
+# 2. list
+# 3. dictionary
+
+# #InTerraform
+# 1: plain
+# 2: list
+# 3: map
+
+variable "plain" {
+    default = "Devops Tranining"
+}
+
+#List
+variable "courses" {
+  default = [
+    "Devops",
+    "AWS",
+    "Python"
+  ]
+}
+
+#Map
+variable "course-details" {
+  default = {
+    Devops = {
+        name = "Devops"
+        timing = "10am"
+        duration = 90
+    }
+
+    AWS = {
+        name = "AWS"
+        timing = "11am"
+        duration = 30
+    }
+  }
+}
+
+output "plain" {
+  value = var.plain
+}
+
+output "courses" {
+  value = var.courses
+}
+
+output "course-details" {
+  value = var.course-details
+}
