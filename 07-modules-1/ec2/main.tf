@@ -11,8 +11,19 @@ resource "aws_instance" "web" {
 data "aws_ami" "example" {
   owners      = ["973714476881"]
   most_recent = true
-  name_regex  = "RedHat-9-DevOps-Banadaru"
+  name_regex  = "Redhat-9-DevOps-Practice"
 }
+
+resource "aws_instance" "web" {
+  ami                    = local.ami_map[var.region]
+  instance_type          = "t3.micro"
+  vpc_security_group_ids = [aws_security_group.sg.id]
+
+  tags = {
+    Name = var.name
+  }
+}
+
 
 
 resource "aws_security_group" "sg" {
