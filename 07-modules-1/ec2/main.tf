@@ -1,5 +1,5 @@
 resource "aws_instance" "web" {
-  ami                    = data.aws_ami.example.id
+  ami                    = "ami-0220d79f3f480ecf5"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.sg.id]
 
@@ -8,10 +8,15 @@ resource "aws_instance" "web" {
   }
 }
 
-data "aws_ami" "example" {
-  owners      = ["973714476881"]
-  most_recent = true
-  name_regex  = "Redhat-9-DevOps-Practice"
+variable "region" {
+  default = "us-east-1"
+}
+
+locals {
+  ami_map = {
+    us-east-1 = "ami-0220d79f3f480ecf5"
+    # add other regions if you copy the AMI
+  }
 }
 
 resource "aws_instance" "web" {
@@ -23,7 +28,6 @@ resource "aws_instance" "web" {
     Name = var.name
   }
 }
-
 
 
 resource "aws_security_group" "sg" {
